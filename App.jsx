@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from './navigations/StackNavigator';
-
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-
 import Loading from './pages/Loading';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -29,6 +27,7 @@ export default function App() {
 
   return ready ? (
     <NavigationContainer>
+      <StatusBar style="auto" />
       <StackNavigator />
     </NavigationContainer>
   ) : (

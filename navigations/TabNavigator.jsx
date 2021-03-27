@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Tabs = createBottomTabNavigator();
 
-const TabNavigator = ({ navigation, route }) => {
+const TabNavigator = ({ navigation }) => {
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
