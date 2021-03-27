@@ -1,30 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import PlusButton from './components/PlusButton'
-import MinusButton from './components/MinusButton'
+import { StyleSheet } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './navigations/StackNavigator';
+
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
+
+import Loading from './pages/Loading';
 
 export default function App() {
+  const [ready, setReady] = useState(false);
 
-  const [count, setCount] = useState(0);
+  const loadFont = () => {
+    setTimeout(async () => {
+      await Font.loadAsync({
+        Roboto: require('native-base/Fonts/Roboto.ttf'),
+        Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+        ...Ionicons.font,
+      });
+      await setReady(true);
+    }, 1000);
+  };
 
-  const Minus = () => {
-    setCount(count - 1)
-  }
+  useEffect(() => {
+    loadFont();
+  }, []);
 
-  const Plus = () => {
-    setCount(count + 1)
-  }
-  
-  return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text style={styles.counter}>카운터 : {count}</Text>
-      <View style={styles.buttonContainer}>
-        <PlusButton func={Plus}/>
-        <MinusButton func={Minus}/>
-      </View>
-    </View>
+  return ready ? (
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
+  ) : (
+    <Loading />
   );
 }
 
@@ -35,28 +43,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  counter: {
-    fontSize: 20,
-    paddingVertical: 20,
-  },
-  buttonContainer: {
-    width: '100%',
-    paddingVertical: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
-  },
-  yellowButton: {
-    width: '40%',
-    backgroundColor: 'yellow',
-    padding: 20,
-    alignItems: 'center',
-    borderRadius: 10
-  },
-  grayButton: {
-    width: '40%',
-    backgroundColor: 'gray',
-    padding: 20,
-    alignItems: 'center',
-    borderRadius: 10
-  }
 });

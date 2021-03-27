@@ -15,7 +15,7 @@ export default function MinusButton({ func }) {
 const styles = StyleSheet.create({
   grayButton: {
     width: '40%',
-    backgroundColor: 'gray',
+    backgroundColor: '#939597',
     padding: 20,
     alignItems: 'center',
     borderRadius: 10

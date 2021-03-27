@@ -12,11 +12,11 @@ export default function MinusButton({ func }) {
 }
 
 const styles = StyleSheet.create({
-  grayButton: {
+  yellowButton: {
     width: '40%',
-    backgroundColor: 'gray',
+    backgroundColor: '#F5dF4D',
     padding: 20,
     alignItems: 'center',
-    borderRadius: 10,
-  },
+    borderRadius: 10
+  }
 });
