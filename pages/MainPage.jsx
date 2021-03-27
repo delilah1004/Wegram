@@ -28,7 +28,6 @@ export default function MainPage({ navigation }) {
             </Col>
           </Grid>
         </Animatable.View>
-
         <Grid style={{ padding: 20 }}>
           <Text style={{ color: 'grey' }}>FROM THE DIARY</Text>
         </Grid>

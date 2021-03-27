@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Image, View } from 'react-native';
-import { Header, Left, Icon, Right, Text, Button } from 'native-base';
+import { StyleSheet, Image } from 'react-native';
+import { Header, Left, Icon, Right, Button } from 'native-base';
 const logo = require('../assets/logo.png');
 export default function HeaderComponent() {
   return (
