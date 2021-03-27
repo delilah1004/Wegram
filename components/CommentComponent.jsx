@@ -3,7 +3,7 @@ import { Text, Dimensions } from 'react-native';
 import { Left, Body, Right, Button, ListItem, Thumbnail } from 'native-base';
 
 const my = require('../assets/my.png');
-const width = Dimensions.get('screen').width;
+const width = Dimensions.get('window').width;
 
 export default function CommentComponent() {
   return (
